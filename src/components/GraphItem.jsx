@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { GetContributionsGraph } from '../hooks/GetContributionsGraph/GetContributionsGraph.js';
 import { getLevelGraph } from '../helpers/getLevelGraph/getLevelGraph.js';
-import './ContributionsGraph.css';
+
 
 export const GraphItem = ({ graphsItems }) => {
    const [contributionsArr, setContributionsArr] = useState();

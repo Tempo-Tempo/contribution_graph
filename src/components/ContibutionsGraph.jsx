@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { GraphItem } from "./GraphItem";
 import {ContributionsLevels} from './ContributionsLevels'
-import './ContributionsGraph.css';
+import { DaysNames } from './DaysNames'
 
 export const СontibutionsGraph = () => {
    const [arrayDays, setArrayDays] = useState([])
@@ -25,19 +25,7 @@ export const СontibutionsGraph = () => {
    return (
       <div className="main_wrapper">
         <div className='container'>
-         <div>
-            <ul className="days_name">
-               <li>
-                 Пн
-               </li>
-               <li>
-                  Ср
-               </li>
-               <li>
-                  Пт
-               </li>
-            </ul>
-         </div>
+         <DaysNames />
          <GraphItem graphsItems={arrayDays}/>
          <ContributionsLevels />
       </div> 
