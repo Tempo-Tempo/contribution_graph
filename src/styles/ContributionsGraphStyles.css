@@ -17,16 +17,6 @@ ul {
    align-items: center;
 }
 
-.graph_item {
-   position: relative;
-   width: 30px;
-   height: 30px;
-   border: 1px solid white;
-   border-radius: 3px;
-   background: rgb(170, 170, 170);
-   transition: 0.3s;
-}
-
 .graph_item:hover {
    border: 1px solid black;
    transition: 0.3s;

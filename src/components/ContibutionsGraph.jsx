@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { GraphItem } from "./GraphItem";
 import {ContributionsLevels} from './ContributionsLevels'
-import { DaysNames } from './DaysNames'
+import { WeeksNames } from './WeeksNames'
 
 export const СontibutionsGraph = () => {
    const [arrayDays, setArrayDays] = useState([])
@@ -9,12 +9,16 @@ export const СontibutionsGraph = () => {
    const calc_date = useCallback((day) => {
          let currentDay = new Date();
          currentDay.setUTCDate(currentDay.getDate() + day)
+         const test = new Date().getDate() - 356;
+         console.log(test)
          return currentDay.toDateString();
    }, [])
 
    useEffect(() => {
       let daysOnYear = [];
-      for(let i = 0; i <= 353; i++) {
+      const test = new Date().getDate() + 337;
+      console.log(test)
+      for(let i = 0; i <= 356; i++) {
          let day = calc_date(-i);
          daysOnYear.unshift({ date: day, value: 0 });
       }
@@ -25,7 +29,7 @@ export const СontibutionsGraph = () => {
    return (
       <div className="main_wrapper">
         <div className='container'>
-         <DaysNames />
+         <WeeksNames />
          <GraphItem graphsItems={arrayDays}/>
          <ContributionsLevels />
       </div> 

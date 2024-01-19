@@ -16,10 +16,11 @@ export const GraphItem = ({ graphsItems }) => {
     }, [graphsItems]);
 
     if(contributionsArr) {
-      graphsItems.map((day) => {
-         const handleItem = new Date(day.date).toJSON().slice(0, 10);
+      graphsItems.forEach(day => {
+         let dayNum = new Date(day.date).toJSON().replaceAll('-', '');
          for (let [key, value] of Object.entries(contributionsArr)) {
-            if(key === handleItem) {
+            let keyNum = key.replaceAll('-', '')
+            if(parseInt(keyNum) === (parseInt(dayNum) + 1)) {
               day.value = value;
             } 
         }
@@ -27,10 +28,13 @@ export const GraphItem = ({ graphsItems }) => {
     }
 
    return (
-      <div className='wrapper_graph_items'> 
+      <div>
+         <div className='wrapper_graph_items'> 
          { graphsItems.map(graph => <div className={getLevelGraph(graph.value)} key={graph.date}>
             <span className='tooltip_graph_item'> {graph.value !== 0 ? graph.value : 'No'} contribution<br /> {graph.date} </span>
          </div>) }
       </div>
+      </div>
+      
    );
 };
